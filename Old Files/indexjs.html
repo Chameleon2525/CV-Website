@@ -1,0 +1,79 @@
+<script>
+    $(document).ready(function(){
+  
+      $('.hidden').fadeIn(2000).removeClass('hidden').promise().done(function(){
+        $('.hidden1').fadeIn(2000).removeClass('hidden1');
+      });
+  
+  
+  
+      jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > 50) {
+          jQuery('.totop').stop().animate({ right: '0px' });
+            jQuery('.totop2').stop().animate({ left: '0px' });
+        }
+  
+        if (jQuery(this).scrollTop() > 200) {
+          jQuery('.totop3').stop().animate({ right: '0px' });
+            jQuery('.totop4').stop().animate({ left: '0px' });
+        }
+  
+        if (jQuery(this).scrollTop() > 350) {
+          jQuery('.totop5').stop().animate({ left: '0px' });
+            jQuery('.totop6').stop().animate({ right: '0px' });
+        }
+      });
+    });
+  </script>
+
+
+<!-- CS -->
+
+.totop, .totop2, .totop3, .totop4, .totop5, .totop6{
+    position:absolute;
+    width:20%;
+    height:100px;
+    }
+
+
+    .totop{
+        top:450px;
+        right:-300px;
+        background:#FF8200;
+      }
+      
+      .totop2{
+        top:450px;
+        left:-300px;
+        background: #04303F;
+      }
+      
+      .totop3{
+        top:650px;
+        right:-300px;
+        background:#FF8200;
+      }
+      
+      .totop4{
+        top:650px;
+        left:-300px;
+        background: #04303F;
+      }
+      
+      .totop5{
+        top:850px;
+        left:-300px;
+        background:#04303F;
+      }
+      
+      .totop6{
+        top:850px;
+        right:-300px;
+        background: #FF8200;
+      }
+
+
+
+      <div class="totop"></div>          <div class="totop4"></div>
+      <div class="totop2"></div>        <div class="totop3"></div>
+      <div class="totop6"></div>        <div class="totop5"></div>

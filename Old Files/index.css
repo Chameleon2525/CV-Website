@@ -1,73 +1,8 @@
 /* SETTINGS */
 
-$main-blue: #0E506C;
-$dark-blue: #082431;
-
-$viewport1199: 1199px;
-$viewport991: 991px;
-$viewport881: 881px;
-$viewport750: 750px;
-$viewport633: 633px;
-$viewport600: 600px;
-$viewport575: 575px;
-$viewport507: 507px;
-$viewport443: 443px;
 
 /* TOOLS */
 
-@mixin VP1199 {
-  @media (max-width: #{$viewport1199}) {
-    @content;
-  }
-}
-
-@mixin VP991 {
-  @media (max-width: #{$viewport991}) {
-    @content;
-  }
-}
-
-@mixin VP881 {
-  @media (max-width: #{$viewport881}) {
-    @content;
-  }
-}
-
-@mixin VP750 {
-  @media (max-width: #{$viewport750}) {
-    @content;
-  }
-}
-
-@mixin VP633 {
-  @media (max-width: #{$viewport633}) {
-    @content;
-  }
-}
-
-@mixin VP600 {
-  @media (max-width: #{$viewport600}) {
-    @content;
-  }
-}
-
-@mixin VP575 {
-  @media (max-width: #{$viewport575}) {
-    @content;
-  }
-}
-
-@mixin VP507 {
-  @media (max-width: #{$viewport507}) {
-    @content;
-  }
-}
-
-@mixin VP443 {
-  @media (max-width: #{$viewport443}) {
-    @content;
-  }
-}
 
 /* GENERIC */
 
@@ -82,9 +17,8 @@ html, body
 {
   width: 100%;
   height: 100%;
-  background: $main-blue;
+  background: #0E506C;
   font-family: Helvetica, sans-serif;
-  color: $dark-blue;
 }
 
 body{
@@ -94,20 +28,6 @@ body{
 .main{
   width:90%;
   margin-left: 5%;
-
-  @include VP1199{
-      margin-top: 65px;
-    } 
-
-  @include VP991{
-      margin-top: 0px;
-    }
-
-  @include VP600{
-    margin: 60px 5% 0 5%;
-    align-content: center;
-  }
-  
 }
 
 /* ELEMENTS */
@@ -115,50 +35,24 @@ body{
 h1{
   text-align: center;
   font-size: 5rem;
-  color: $main-blue;
-  
-  @include VP600{
-    font-size: 4rem;
-  }
-
-  @include VP507{
-    font-size: 3.5rem;
-  }
+  color: #0E506C;
 }
 
 h2{
   font-size: 1.3rem;
   display: inline;
-
-  @include VP750{
-    display: block;
-    font-size: 1.3rem;
-  }
 }
 
 h3,h4{
   font-size: 1.3rem;
   display: block;
   text-justify: left;
-
-  @include VP600{
-    font-size: 1rem;
-    padding: 20px 0 0 0;
-  }
 }
 
 h5{
   text-align: center;
   font-size: 5rem;
   color: #042733;
-
-  @include VP600{
-    font-size: 4rem;
-  }
-
-  @include VP507{
-    font-size: 3.5rem;
-  }
 }
 
 h6{
@@ -169,16 +63,17 @@ h6{
 }
 
 .main a{
-  color: $dark-blue;
   display: inline;
   font-size: 1.6rem;
+  color: #082432;
   text-decoration: none;
   margin: 20px 0px;
 }
 
 .main a:hover{
-    color:#19A3DF;
+  color:#19A3DF;
 }
+
 
 hr{
   display: block; 
@@ -196,19 +91,6 @@ p{
   font-size: 1.4rem;
   min-height: 56px;
   margin: 50px 0px;
-
-  @include VP991{
-    padding:0;
-    font-size: 1.3rem;
-  }
-
-  @include VP750{
-    font-size: 1.2rem;
-  }
-
-  @include VP600{
-    font-size: 1rem;
-  }
 }
 
 footer{
@@ -243,9 +125,9 @@ footer{
  }
 
 .navbar-dark{
-  background-image: -webkit-linear-gradient($main-blue 0%, $dark-blue 100%);
-  background-image: -o-linear-gradient($main-blue 0%, $dark-blue 100%);
-  background-image: linear-gradient($main-blue 0%, $dark-blue 100%);
+  background-image: -webkit-linear-gradient(#0E506C 0%, #082431 100%);
+  background-image: -o-linear-gradient(#0E506C 0%, #082431 100%);
+  background-image: linear-gradient(#0E506C 0%, #082431 100%);
   font-family: Helvetica, sans-serif;
   font-size: 1.4em;
 }
@@ -259,20 +141,16 @@ footer{
     background-image: none;
 }
 
-.navbar-collapse {
-
-  ul {
-    float: right;
-
-    li{
-        display: flex;
-        padding: 0px  10px;
-        align-items: center;
-        text-align: center;
-      }
-  }
+.navbar-collapse ul {
+  float: right;
 }
 
+.navbar-collapse ul li{
+  display: flex;
+  padding: 0px  10px;
+  align-items: center;
+  text-align: center;
+}
 
 .navbar-dark .navbar-brand
 {
@@ -307,48 +185,26 @@ footer{
 .webDev__introText {
   display: inline;
   font-size: 1.6rem;
+  color: #082432;
   text-align: justify;
 }
 
 .Course__title, .Work__title{
   display: inline;
   font-size: 2rem;
+  color: #082432;
   text-decoration: none;
   margin: 20px 0px;
-
-  @include VP991{
-    font-size: 1.7rem;
-  }
-
-  @include VP750{
-    font-size: 1.5rem;
-  }
-
-  @include VP600{
-    font-size: 1.3rem;
-  }
 }
 
 .Webdev__quote{
   display: inline;
   font-size: 1.5rem;
   text-align: left;
+  color: #082432;
   text-decoration: none;
   margin: 20px 0px;
   font-family: Trajan;
-
-  @include VP991{
-    padding:0;
-    font-size: 1.3rem;
-  }
-
-  @include VP750{
-    font-size: 1.2rem;
-  }
-
-  @include VP600{
-    font-size: 1rem;
-  }
 }
 
 .Webdev__icon{
@@ -359,20 +215,9 @@ footer{
   text-align: center;
   display: block;
   font-size: 2rem;
+  color: #082432;
   text-decoration: underline;
   margin: 20px 0px;
-
-  @include VP991{
-    font-size: 1.7rem;
-  }
-
-  @include VP750{
-    font-size: 1.5rem;
-  }
-
-  @include VP600{
-    font-size: 1.3rem;
-  }
 }
 
 .Webdev__title{
@@ -380,13 +225,9 @@ footer{
   display: block;
   text-align: center;
   font-size: 3rem;
+  color: #082432;
   text-decoration: none;
   margin: 70px 0px;
-
-  @include VP600{
-    font-size: 2.4rem;
-    margin: 30px 0;
-  }
 }
 
 .hr--padbottom{
@@ -395,85 +236,36 @@ footer{
 
 .CV__intro{
   font-size: 2rem;
+  color: #082432;
   text-decoration: none;
   margin: 20px 0px;
   text-align: center;
-
-  @include VP991{
-    font-size: 1.6rem;
-  }
-
-  @include VP750{
-    font-size: 1.4rem;
-  }
 }
 
 .CV__container{
   height:176px;
-
-  @include VP633{
-    height: 274px;
-  }
-
-  @include VP600{
-    height: 150px;
-  }
-
-  @include VP507(){
-    height: 125px;
-  }
-
-  @include VP443{
-    height: 185px;
-  }
-
 }
 
 .Work__disclaimer{
   margin: 150px 0;
   text-align: center;
-
-  @include VP991{
-    margin: 100px 0;
-  }
 }
 
 main .Webdev__applink{
   display: block;
-  margin: 70px 0 30px 0;
+  margin: 30px 0;
 }
 
 .Course__date, .Work__date
 {
   float: right;
   padding-top: 6px;
-
-  @include VP750{
-    float: left;
-    padding-left: 17px;
-  }
-
-  @include VP600{
-    padding: 5px 0 0 0;
-    font-size: 0.9rem;
-  }
-
 }
 
 .Course__header, .Work__role{
   font-size: 1.5rem;
   display: inline;
   padding-left: 20px;
-
-  @include VP750{
-    display: block;
-    font-size: 1.3rem;
-  }
-
-  @include VP600{
-    font-size: 1.2rem;
-    padding: 0px;
-  }
 }
 
 .Course__subject, .Work__subject{
@@ -483,16 +275,6 @@ main .Webdev__applink{
   font-size: 1.2rem;
   padding-left: 40px;
   margin: 30px 0;
-
-  @include VP750{
-    display: block;
-    padding: 20px 0 0 19px;
-  }
-
-  @include VP600{
-    font-size: 1rem;
-    padding: 20px 0 0 0;
-  }
 }
 
 .Work__subject{
@@ -506,19 +288,6 @@ main .Webdev__applink{
   margin: 0 auto;
   text-align: justify;
   font-size: 1.5rem;
-
-  @include VP991{
-    padding:0;
-    font-size: 1.3rem;
-  }
-
-  @include VP750{
-    font-size: 1.2rem;
-  }
-
-  @include VP600{
-    font-size: 1rem;
-  }
 }
 
 .music__text{
@@ -526,54 +295,15 @@ main .Webdev__applink{
   display: inline;
   padding:43px 0 0 30px;
   text-align: justify;
-
-  @include VP1199{
-    font-size: 1.1rem;
-  }
-
-  @include VP991{
-  font-size: 1.1rem;
-  }
-
-  @include VP881{
-    padding: 0;
-  }
-
-  @include VP750{
-    font-size: 1.2rem;
-  }
-
-  @include VP600{
-    font-size: 1rem;
-  }
 }
 
  .Music__video{
   margin: 50px 0;
-
-  @include VP881{
-    width: 80%;
-    margin-left: 10%;
-  }
-
-  @include VP750{
-    height: 250px; 
-  }
-
-  @include VP600{
-    height: 180px;
-  }
-
 }
 
 .music__container{
   display: flex;
   justify-content: space-between;
-
-  @include VP881{
-    display: block;
-    text-align: justify;
-  }
 }
 
 .Container--center{
@@ -583,24 +313,87 @@ main .Webdev__applink{
 
 /*UTILITIES*/
 
+
+@media all and (max-width: 1199px) {
+
+  .main{
+    margin-top: 65px;
+  }
+
+  .music__text{
+    font-size: 1.1rem;
+  }
+ }
+
+
 @media all and (max-width: 991px) {
 
   .navbar-nav .dropdown-menu{
     position: absolute;
   }
 
+  .main{
+    margin-top: 0px;
+  }
+
+  .CV__intro{
+    font-size: 1.6rem;
+  }
+  
+  .Webdev__text, p, .Webdev__quote{
+    padding:0;
+    font-size: 1.3rem;
+  }
+
+  .Work__disclaimer{
+    margin: 100px 0;
+  }
+  .Work__title, .music__title, .Course__title{
+    font-size: 1.7rem;
+  }
+
+  .music__text{
+    font-size: 1.1rem;
+  }
+
 }
 
 @media all and (max-width: 881px) {
-
   p.BP{
     font-size: 1.1rem;
+  }
+  .music__container{
+    display: block;
+    text-align: justify;
+  }
+  .Music__video{
+    width: 80%;
+    margin-left: 10%;
+  }
+  .music__text{
+    padding: 0;
   }
 
  }
 
 @media all and (max-width: 750px) {
 
+  .Course__header, .Work__role, h2{
+    display: block;
+    font-size: 1.3rem;
+  }
+  .Course__date, .Work__date {
+    float: left;
+    padding-left: 17px;
+  }
+
+  .Music__video{
+    height: 250px; 
+  }
+
+  .CV__intro{
+    font-size: 1.4rem;
+  }
   .Row--margintp-lg {
     margin-top: 60px;
   }
@@ -610,13 +403,30 @@ main .Webdev__applink{
     font-size: 0.8rem;
   }
 
-  .Course__date, .Work__subject
+  .Work__title, .music__title, .Course__title{
+    font-size: 1.5rem;
+  }
+
+  .Course__date, .music__text, .Webdev__text, p, .Webdev__quote, .Work__subject
   {
     font-size: 1.2rem;
   }
 
   p.BP{
     font-size: 1rem;
+  }
+
+  .Course__subject, .Work__subject{
+    display: block;
+    padding: 20px 0 0 19px;
+  }
+
+}
+
+@media all and (max-width: 633px) {
+
+  .CV__container{
+    height: 274px;
   }
 
 }
@@ -633,6 +443,22 @@ main .Webdev__applink{
     align-items: center;
   }
 
+  .CV__container{
+    height: 150px;
+  }
+
+  h1, h5{
+    font-size: 4rem;
+  }
+
+  .Music__video{
+    height: 180px; 
+  }
+
+  .Work__title, .music__title, .Course__title{
+    font-size: 1.3rem;
+  }
+
   .Row--margintp-md{
     margin-top: 20px;
   }
@@ -640,10 +466,39 @@ main .Webdev__applink{
   .Row--margintp-lg{
     margin-top: 40px;
   }
+  
+  .Webdev__title{
+    font-size: 2.4rem;
+    margin: 30px 0;
+  }
+
+  .Webdev__text, .music__text, .Webdev__quote, p{
+    font-size: 1rem;
+  }
 
   p.BP{
     margin: 10px 15px;
     display: inline-block;
+  }
+
+  .Course__header, .Work__role {
+    font-size: 1.2rem;
+    padding: 0px;
+  }
+
+  .Course__subject, .Work__subject, h3, h4{
+    font-size: 1rem;
+    padding: 20px 0 0 0;
+  }
+
+  .Course__date, .Work__date {
+    padding: 5px 0 0 0;
+    font-size: 0.9rem;
+  }
+
+  .main{
+    margin: 60px 5% 0 5%;
+    align-content: center;
   }
 
   .main__animation{
@@ -659,6 +514,26 @@ main .Webdev__applink{
     font-size: 1.3rem;
   }
 
+}
+
+@media all and (max-width: 507px) {
+   
+  .CV__container{
+    height: 125px;
+  }
+
+  h1, h5{
+    font-size: 3.5rem;
+  }
+
+}
+
+@media all and (max-width: 443px) {
+
+  .CV__container{
+    height: 185px;
+  }
+  
 }
 
 

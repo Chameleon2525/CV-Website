@@ -17,9 +17,7 @@ var todoList = {
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
-    //WIP//
     var toggleIcon = document.getElementById('toggleIcon');
-    //WIP//
     var todosUl = document.querySelector('ul').children;
 
     var totalTodos = this.todos.length;
