@@ -20,16 +20,21 @@ body,html {
 }
 
 h1{
-
   font-size: 5rem;
   color: #0E506C;
   padding: 20px 0px;
 }
 
+h2{
+  margin-top: 40px;
+  font-size: 2rem;
+  color: #0E506C;
+}
+
 .keys {
   display: flex;
   flex: 1;
-  min-height: 40vh;
+  min-height: 20vh;
   align-items: center;
   justify-content: center;
 }
@@ -68,6 +73,7 @@ kbd {
   color: #ffc600;
 }
 
+
 a, .drumKit__backLink {
   padding-top: 20px;
   color: #082432;
@@ -76,13 +82,30 @@ a, .drumKit__backLink {
   text-decoration: none;
 }
 
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+
 a:hover {
   color: #19A3DF; }
 
 #vol-control{
-  width: 30%
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 20%;
+  height: 10px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin: 20px 0;
 }
 
-  @media all and (max-width: 850px) {
+  @media all and (max-width: 1121px) {
     .keys {
       display: block; } }

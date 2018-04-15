@@ -1,0 +1,257 @@
+html {
+  background-image: url("../Images/eggshell.jpg"); }
+
+@keyframes audio-wave {
+  0% {
+    height: 5px;
+    transform: translateY(0px);
+    background: #84c9f7; }
+  25% {
+    background: #3498db; }
+  50% {
+    height: 60px;
+    transform: translateY(30px);
+    background: #0E506C; }
+  75% {
+    background: #3498db; }
+  100% {
+    height: 5px; } }
+
+.wave {
+
+  position: absolute;
+  top: 235px;
+  left: 10%; }
+
+.wave2 {
+  position: relative;
+  float: right;
+  bottom: -62px;
+  right: 180px; }
+
+span {
+  display: block;
+  bottom: 0px;
+  width: 5px;
+  height: 0px;
+  background: #84c9f7;
+  position: absolute;
+  animation: audio-wave 2s infinite ease-in-out;
+  animation-delay: 4s; }
+
+span:nth-child(2) {
+  left: 10px;
+  animation-delay: 4.8s; }
+
+span:nth-child(3) {
+  left: 20px;
+  animation-delay: 5.2s; }
+
+span:nth-child(4) {
+  left: 30px;
+  animation-delay: 5.6s; }
+
+span:nth-child(5) {
+  left: 40px;
+  animation-delay: 6s; }
+
+span:nth-child(6) {
+  left: 50px;
+  animation-delay: 6.4s; }
+
+span:nth-child(7) {
+  left: 60px;
+  animation-delay: 6.8s; }
+
+span:nth-child(8) {
+  left: 70px;
+  animation-delay: 7.2s; }
+
+span:nth-child(9) {
+  left: 80px;
+  animation-delay: 7.6s; }
+
+span:nth-child(10) {
+  left: 90px;
+  animation-delay: 8s; }
+
+span:nth-child(11) {
+  left: 100px;
+  animation-delay: 8.4s; }
+
+span:nth-child(12) {
+  left: 110px;
+  animation-delay: 8.8s; }
+
+span:nth-child(13) {
+  left: 120px;
+  animation-delay: 9.2s; }
+
+span:nth-child(14) {
+  left: 130px;
+  animation-delay: 9.6s; }
+
+span:nth-child(15) {
+  left: 140px;
+  animation-delay: 10s; }
+
+span:nth-child(16) {
+  left: 150px;
+  animation-delay: 10.4s; }
+
+span:nth-child(17) {
+  left: 160px;
+  animation-delay: 10.8s; }
+
+span:nth-child(18) {
+  left: 170px;
+  animation-delay: 11.2s; }
+
+span:nth-child(19) {
+  left: 180px;
+  animation-delay: 11.6s; }
+
+span:nth-child(20) {
+  left: 190px;
+  animation-delay: 12s; }
+
+span:nth-child(21) {
+  left: 200px;
+  animation-delay: 12.4s; }
+
+span:nth-child(22) {
+  left: 210px;
+  animation-delay: 12.8s; }
+
+span:nth-child(23) {
+  left: 220px;
+  animation-delay: 13.2s; }
+
+span:nth-child(24) {
+  left: 230px;
+  animation-delay: 13.6s; }
+
+span:nth-child(25) {
+  left: 240px;
+  animation-delay: 14s; }
+
+span:nth-child(26) {
+  left: 250px;
+  animation-delay: 14.4s; }
+
+span:nth-child(27) {
+  left: 260px;
+  animation-delay: 14.8s; }
+
+span:nth-child(28) {
+  left: 270px;
+  animation-delay: 15.2s; }
+
+span:nth-child(29) {
+  left: 280px;
+  animation-delay: 15.6s; }
+
+span:nth-child(30) {
+  left: 290px;
+  animation-delay: 16s; }
+
+span:nth-child(31) {
+  left: 300px;
+  animation-delay: 16.4s; }
+
+span:nth-child(32) {
+  left: 310px;
+  animation-delay: 16.8s; }
+
+span:nth-child(33) {
+  left: 320px;
+  animation-delay: 17.2s; }
+
+span:nth-child(34) {
+  left: 330px;
+  animation-delay: 17.6s; }
+
+  @media all and (min-width: 444px){
+
+    .wave {
+      position: relative;
+      top: 175px;
+      left: 30px; } 
+    
+  }
+
+@media all and (min-width: 1249px) {
+  .wave {
+    position: relative;
+    top: 90px;
+    left: 80px; }
+
+  .wave2 {
+    position: relative;
+    float: right;
+    bottom: 85px;
+    right: 23%; }
+
+  span {
+    display: block;
+    bottom: 0px;
+    width: 10px;
+    height: 0px;
+    background: #84c9f7;
+    position: absolute;
+    animation: audio-wave 2s infinite ease-in-out;
+    animation-delay: 4s; }
+
+  span:nth-child(2) {
+    left: 22px;
+    animation-delay: 4.8s; }
+
+  span:nth-child(3) {
+    left: 44px;
+    animation-delay: 5.2s; }
+
+  span:nth-child(4) {
+    left: 66px;
+    animation-delay: 5.6s; }
+
+  span:nth-child(5) {
+    left: 88px;
+    animation-delay: 6s; }
+
+  span:nth-child(6) {
+    left: 110px;
+    animation-delay: 6.4s; }
+
+  span:nth-child(7) {
+    left: 132px;
+    animation-delay: 6.8s; }
+
+  span:nth-child(8) {
+    left: 154px;
+    animation-delay: 7.2s; }
+
+  span:nth-child(9) {
+    left: 176px;
+    animation-delay: 7.6s; }
+
+  span:nth-child(10) {
+    left: 198px;
+    animation-delay: 8s; }
+
+  @keyframes audio-wave {
+    0% {
+      height: 5px;
+      transform: translateY(0px);
+      background: #84c9f7; }
+    25% {
+      background: #3498db; }
+    50% {
+      height: 210px;
+      transform: translateY(100px);
+      background: #0E506C; }
+    75% {
+      background: #3498db; }
+    100% {
+      height: 5px; } } }
+
+/*# sourceMappingURL=wave.css.map */

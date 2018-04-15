@@ -1,0 +1,103 @@
+
+$wave__position: 11px;
+$wave__position--small: 5px;
+$wave__delay: 4s;
+
+html {
+    background-image: url("../Images/eggshell.jpg");
+}
+
+
+@keyframes audio-wave {
+  0% {
+    height: 5px;
+    transform: translateY(0px);
+    background: #84c9f7; }
+  25% {
+    background: #3498db; }
+  50% {
+    height: 60px;
+    transform: translateY(30px);
+    background: #0E506C; }
+  75% {
+    background: #3498db; }
+  100% {
+    height: 5px; } }
+
+
+.wave {
+  position: relative;
+  top: 235px;
+  left: 20px;
+}
+
+.wave2 {
+    position: relative;
+    float: right;
+    bottom: -62px;
+    right: 180px;
+  }
+
+span {
+  display: block;
+  bottom: 0px;
+  width: 5px;
+  height: 0px;
+  background: #84c9f7;
+  position: absolute;
+  animation: audio-wave 2s infinite ease-in-out;
+  animation-delay: $wave__delay;
+}
+
+@for $i from 2 to 35 {
+  span:nth-child(#{$i}) {
+    left: ($wave__position--small * ($i - 1)*2);
+    animation-delay: ($wave__delay + (0.4*$i));
+  }
+}
+
+@media all and (min-width: 1249px){
+
+  .wave {
+    position: relative;
+    top: 90px;
+    left: 65px;
+  }
+  
+  .wave2 {
+      position: relative;
+      float: right;
+      bottom: 85px;
+      right: 23%;
+    }
+  
+  span {
+    display: block;
+    bottom: 0px;
+    width: 10px;
+    height: 0px;
+    background: #84c9f7;
+    position: absolute;
+    animation: audio-wave 2s infinite ease-in-out;
+    animation-delay: $wave__delay;
+  }
+  
+    @for $i from 2 to 11 {
+      span:nth-child(#{$i}) {
+        left: ($wave__position * ($i - 1)*2);
+        animation-delay: ($wave__delay + (0.4*$i));
+      }
+  }
+  
+  @keyframes audio-wave {
+    0% {height:5px;transform:translateY(0px);background:#84c9f7 ;}
+    25% {background:#3498db;}
+    50% {height:210px;transform:translateY(100px);background:#0E506C;}
+    75%{background:#3498db;}
+    100%{height:5px;}
+}
+
+}
+
+
+

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="Styles/Drumkit.css">
+  <script src="https://use.fontawesome.com/a3a009cd80.js"></script>
 </head>
 <body>
 
   <div class="drumKit__backLink"></div><a href = "webdev.html">BACK TO SITE</a></div>
 
   <h1>JavaScript Drum Kit</h1>
+    <i style ="font-size: 4rem; display: block;" class="fa fa-volume-up"></i>
+    <input id="vol-control" type="range" min="0" max="100" value = "100" step="1" oninput="volumeChange(this.value)" onchange="volumeChange(this.value)"></input>
 
-  <div class="volumeslider">
-    <h2>Volume</h2>
-    <input id="vol-control" type="range" min="0" max="100" value = "100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
-  </div>
+    <div class="wrapper">
+      <canvas class="visualizer" width="640" height="100"></canvas> 
+
+    </div>
+
 
     <div class="keys">
       <div class = "row">
@@ -62,6 +66,7 @@
     </div>
     <img src = "../Images/DrumKit.png" alt = "drumkit outline">
 
+  <audio id = "origin" data-key = "" src = ""></audio>
   <audio data-key="65" src="sounds/kick.wav"></audio>
   <audio data-key="83" src="sounds/snare.wav"></audio>
   <audio data-key="68" src="sounds/clap.wav"></audio>
@@ -73,37 +78,150 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-      
+
   function playSound(e){
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);  //listens out for specific keycode of event to assign to audio
+    var audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);  //listens out for specific keycode of event to assign to audio
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if(!audio) return; //if key has no audio, stop function
     audio.currentTime = 0; //rewinds to start for multiple plays
-    audio.play();
     key.classList.add('playing') //adds class of playing
   }  
 
-    function SetVolume(val)
-    {
-        const player = document.querySelectorAll('audio');
-        debugger;
-        for(i=0;i<player.length;i++){
-          console.log('Before: ' + player[i].volume);
-          player[i].volume = val / 100;
-          console.log('After: ' + player[i].volume);
-        };
+  function setVolume(val){
+    const player = document.querySelectorAll('audio');
 
-    }
+    for(i=0;i<player.length;i++){
+      console.log('Before: ' + player[i].volume);
+      player[i].volume = val / 100;
+      console.log('After: ' + player[i].volume);
+    };
+  }
 
   function removeTransition(e){
     if(e.propertyName !== 'transform') return; //skip if not a transform
     //this equals key
     this.classList.remove('playing');
   }
+
+  function alterIcon(val){
+    const icon = document.querySelector('i');
+        if(val == 0){
+          icon.className = "";
+          icon.className = "fa fa-volume-off";
+        }
+        else if(val > 0 && val < 49){
+          icon.className = "";
+          icon.className = "fa fa-volume-down";  
+        }
+        else{
+          icon.className = "";
+          icon.className = "fa fa-volume-up"; 
+        }
+  }
+
+  function volumeChange(val){
+      alterIcon(val);
+      setVolume(val);
+  }
+
+
+  window.addEventListener('keydown', function(e){
+    playSound(e);
+    API(e);
+  });//listen for event  
+
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // for all keys, listen out for end of transition then remove this
+ 
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext); //Webaudio API
+  var source;
 
-  window.addEventListener('keydown', playSound);//listen for event   
+//API EXPERIMENT
+function API(e){
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);  //listens out for specific keycode of event to assign to audio
+  const origin = document.getElementById('origin'); //empty audio track
+
+  if(!source){
+    source = audioCtx.createMediaElementSource(origin); //create media element source on empty audio track
+  }
+  if(source.mediaElement !== audio) 
+    {
+     source.mediaElement.src = audio.src; //load
+     source.mediaElement.dataset.key = audio.dataset.key;
+    }
+  source.mediaElement.play();
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);//sends audio to output
+  visualize();
+}
+
+  // set up canvas context for visualizer
+  var canvas = document.querySelector('canvas');
+  var canvasCtx = canvas.getContext("2d");
+
+  var intendedWidth = document.querySelector('.wrapper').clientWidth;
+
+  canvas.setAttribute('width',intendedWidth);
+
+  var drawVisual;
+
+  var analyser = audioCtx.createAnalyser(); //setup analyser node
+  analyser.minDecibels = -90;
+  analyser.maxDecibels = -10;
+  analyser.smoothingTimeConstant = 0.85;
+
+function visualize() {
+  WIDTH = canvas.width;
+  HEIGHT = canvas.height;
+
+    analyser.fftSize = 2048;
+    var bufferLength = analyser.fftSize;
+    var dataArray = new Uint8Array(bufferLength);
+
+    canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+
+   // setTimeout(draw, 2000); 
+    function draw() {
+
+      analyser.getByteTimeDomainData(dataArray);
+
+      // var signal = 1;
+      // setTimeout(function check(){
+      //   debugger;
+      //   if(!!dataArray.reduce(function(a, b){ return (a === b) ? a : NaN; })) signal = 2; return;
+      // },2000)
+
+        drawVisual = requestAnimationFrame(draw);
+        canvasCtx.fillStyle = '#0E506C';
+        canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+        canvasCtx.lineWidth = 3;
+        canvasCtx.strokeStyle = 'rgb(255, 255, 255)';
+
+        canvasCtx.beginPath();
+
+        var sliceWidth = WIDTH * 1.0 / bufferLength;
+        var x = 0;
+
+        for(var i = 0; i < bufferLength; i++) {
+
+          var v = dataArray[i] / 128.0;
+          var y = v * HEIGHT/2;
+
+          if(i === 0) {
+            canvasCtx.moveTo(x, y);
+          } else {
+            canvasCtx.lineTo(x, y);
+          }
+
+          x += sliceWidth;
+        }
+        canvasCtx.lineTo(canvas.width, canvas.height/2);
+        canvasCtx.stroke();
+    };
+    draw();
+}
+
 </script>
 
 
